@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class WorldGenerator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Chunk[] tiles;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        for(int i = 0; i < 4; i++)
+            for(int j = 0; j < 4; j++)
+            {
+                Instantiate(tiles[Random.Range(0, tiles.Length)].tilemapPrefab).transform.position = new Vector3(i * 16, j * 16);
+            }
     }
 }
