@@ -41,7 +41,7 @@ public class PlayerStats : MonoBehaviour
             soulBar.fillAmount = (float)souls / maxSouls;
         }
     }
-    public int weapon;
+    private int weapon;
     public int Weapon
     {
         get
