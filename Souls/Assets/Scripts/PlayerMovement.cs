@@ -6,12 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
     public float maxSpeed;
     public float acceleration;
-    Vector2 movement;
+    public Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {
-        movement.x = 0;
-        movement.y = 0;
+
     }
 
     // Update is called once per frame
@@ -21,32 +20,20 @@ public class PlayerMovement : MonoBehaviour
         float inputHorizontal = Input.GetAxisRaw("Horizontal");
         float inputVertical = Input.GetAxisRaw("Vertical");
         Vector2 inputVector = new Vector2(inputHorizontal, inputVertical);
-
-        // make player's controls affect the movement
-        movement += movement.normalized * (-acceleration) * 0.5f;
-        // fixing the bug causing the player to continue moving if the speed is below the acceleration
-        if (inputVector.magnitude == 0.0f && movement.magnitude < acceleration * 0.5)
+        rb2d.AddForce(inputVector.normalized * acceleration);
+        float velocitySpeed = rb2d.velocity.magnitude;
+        // Apply brakes
+        //rb2d.AddForce(-rb2d.velocity.normalized * acceleration * 0.5f);
+        // Don't let the player go too fast
+        if (velocitySpeed > maxSpeed)
         {
-            movement = Vector2.zero;
+            rb2d.velocity = rb2d.velocity.normalized * maxSpeed;
         }
-        movement += inputVector * acceleration;
-        float movementSpeed = movement.magnitude;
-
-        // Don't go past the maximum speed
-        if (movementSpeed > maxSpeed)
-        {
-            movement = movement.normalized * maxSpeed;
-        }
-        movementSpeed = movement.magnitude;
-
-
-        // Define new position
-        Vector3 newPosition = transform.position + new Vector3(movement.x, movement.y, 0.0f) * Time.deltaTime;
         // Define new angle
-        float movementAngle = Mathf.Atan2(movement.y,movement.x);
+        float movementAngle = Mathf.Atan2(rb2d.velocity.y, rb2d.velocity.x);
         Quaternion newQuaternion = Quaternion.Euler(0.0f, 0.0f, movementAngle/Mathf.PI*180.0f);
-        // Move and rotate player
-        transform.position = newPosition;
+        // Rotate player
+        //transform.position = newPosition;
         if(inputVector.magnitude > 0.0f)
         {
             transform.rotation = newQuaternion;
