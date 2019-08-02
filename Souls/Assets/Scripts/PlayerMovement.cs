@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 newPosition = transform.position + new Vector3(movement.x, movement.y, 0.0f) * Time.deltaTime;
         // Define new angle
         float movementAngle = Mathf.Atan2(movement.y,movement.x);
-        Quaternion newQuaternion = Quaternion.Euler(0.0f, 0.0f, movementAngle/Mathf.PI*180.0f);
+        Quaternion newQuaternion = Quaternion.Euler(0.0f, 0.0f, movementAngle/Mathf.PI*180.0f + 90);
         // Move and rotate player
         transform.position = newPosition;
         if(inputVector.magnitude > 0.0f)
