@@ -68,4 +68,19 @@ public class PlayerStats : MonoBehaviour
     {
         
     }
+
+    public void DoDamage(int damage)
+    {
+        for (int i = 0; i < damage; i++)
+        {
+            if (Health > 0)
+            {
+                Health--;
+            }
+            else
+            {
+                Souls--;
+            }
+        }
+    }
 }
