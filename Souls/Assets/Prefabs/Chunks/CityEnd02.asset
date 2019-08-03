@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21907f2cdfadeee479c36342c97c1d53, type: 3}
-  m_Name: City
+  m_Name: CityEnd02
   m_EditorClassIdentifier: 
-  sides: 0
-  tilemapPrefab: {fileID: 2082617124724279180, guid: 67a8992d4dbd5694da4e54c82f88757a,
+  type: 4
+  randomWeight: 1
+  tilemapPrefab: {fileID: 2082617124724279180, guid: dd0c05bedf0bf43488440285f5e31ea1,
     type: 3}
