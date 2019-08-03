@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75314c2d1f09c0a48a0f9b2ab8539e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 8386838293060455385, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc, type: 3}
   rb2d: {fileID: -1071463961074066792}
   acceleration: 0.7
   maxSpeed: 5

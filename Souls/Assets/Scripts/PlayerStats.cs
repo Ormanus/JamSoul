@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour
             healthBar.fillAmount = (float)health / maxHealth;
         }
     }
-
+    public Sprite[] soulSprites;
     private int souls;
     public int Souls
     {
@@ -38,7 +38,15 @@ public class PlayerStats : MonoBehaviour
         set
         {
             souls = value;
-            soulBar.fillAmount = (float)souls / maxSouls;
+            if (souls > 0 && souls <= maxSouls)
+            {
+                soulBar.enabled = true;
+                soulBar.sprite = soulSprites[souls - 1];
+            }
+            else
+            {
+                soulBar.enabled = false;
+            }
         }
     }
     private int weapon;
@@ -57,7 +65,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         maxHealth = 8;
-        maxSouls = 4;
+        maxSouls = 9;
         Weapon = 0;
         Health = maxHealth;
         Souls = maxSouls;
