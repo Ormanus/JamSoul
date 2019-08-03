@@ -17,12 +17,15 @@ public class GhostAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 thrustDirection3D = player.transform.position - rb2d.transform.position;
-        Vector2 thrustDirection = new Vector2(thrustDirection3D.x, thrustDirection3D.y).normalized;
-        rb2d.AddForce(thrustDirection * acceleration);
-        if(rb2d.velocity.magnitude > maxSpeed)
+        if((player.transform.position - transform.position).sqrMagnitude < 64)
         {
-            rb2d.velocity = rb2d.velocity.normalized * maxSpeed;
+            Vector3 thrustDirection3D = player.transform.position - rb2d.transform.position;
+            Vector2 thrustDirection = new Vector2(thrustDirection3D.x, thrustDirection3D.y).normalized;
+            rb2d.AddForce(thrustDirection * acceleration);
+            if (rb2d.velocity.magnitude > maxSpeed)
+            {
+                rb2d.velocity = rb2d.velocity.normalized * maxSpeed;
+            }
         }
     }
 }
