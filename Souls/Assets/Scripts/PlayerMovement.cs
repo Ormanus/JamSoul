@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     public float maxSpeed;
     public float acceleration;
     public Rigidbody2D rb2d;
+    public SpriteRenderer spriteRenderer;
+    public Sprite standingSprite;
+    public Sprite[] walkingSprites;
     // Start is called before the first frame update
     void Start()
     {
