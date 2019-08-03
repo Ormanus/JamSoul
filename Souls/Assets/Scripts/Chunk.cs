@@ -16,7 +16,14 @@ public class Chunk : ScriptableObject
         Market
     }
 
+    public enum Palette
+    {
+        City,
+        Forest,
+    }
+
     public Type type;
+    public Palette palette;
     public float randomWeight = 1.0f; // How often should this chunk appear
     public GameObject tilemapPrefab;
 }

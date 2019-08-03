@@ -1,27 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class WorldGenerator : MonoBehaviour
 {
-    public Chunk[] tiles;
+    public Chunk[] cityTiles;
+    public Chunk[] forestTiles;
 
     const int chunkSize = 16;
-    const int areaSize = 16;
-    const int worldSize = 16;
+    const int areaSize = 32;
+    //const int worldSize = 32;
 
     private void Start()
     {
-        //TODO: multiple areas, tilesets, connections between areas?
-
-        //for (int i = 0; i < worldSize; i++)
-        //{
-        //    for (int j = 0; j < worldSize; j++)
-        //    {
-
-        //    }
-        //}
-
         generateCity(0, 0, 8, 8);
     }
 
@@ -43,15 +35,14 @@ public class WorldGenerator : MonoBehaviour
                 map[i, j] = -1;
             }
         }
-
-        //if(x == 0 && y == 0)
-        //{
-        //    map[8, 9] = 16; 
-        //}
-
         List<int> openList = new List<int>();
-        openList.Add(enterX + enterY * areaSize);
-        map[enterX, enterY] = 0;
+
+        map[8, 7] = 17;
+        map[8, 8] = 16;
+
+        openList.Add(7 + 8 * areaSize);
+        openList.Add(8 + 9 * areaSize);
+        openList.Add(9 + 8 * areaSize);
 
         while (openList.Count > 0)
         {
@@ -81,7 +72,7 @@ public class WorldGenerator : MonoBehaviour
                             //Debug.Log("Added to open list");
                         }
                     }
-                    else
+                    else if(map[x1, y1] != 17)
                     {
                         existingSides.Add(i);
                         //Debug.Log("Added to side list");
@@ -91,6 +82,18 @@ public class WorldGenerator : MonoBehaviour
 
             if(existingSides.Count > 0)
             {
+                for(int i = 0; i < existingSides.Count; i++)
+                {
+                    int side = existingSides[i];
+                    int x1 = x0 + sideCoords[side][0];
+                    int y1 = y0 + sideCoords[side][1];
+                    if(map[x1, y1] == 16)
+                    {
+                        map[x0, y0] |= (1 << side);
+                        existingSides.RemoveAt(i);
+                    }
+                }
+                if(existingSides.Count > 0)
                 {
                     int r = Random.Range(0, existingSides.Count);
                     int side = existingSides[r];
@@ -148,9 +151,21 @@ public class WorldGenerator : MonoBehaviour
                     //    (((data & 1) > 0) ? "1" : "0")
                     //    );
 
+                    if (data == 16)
+                    {
+                        CreateTile(i, j, 0, Chunk.Type.Market);
+                        success = true;
+                        break;
+                    }
+                    if (data == 17)
+                    {
+                        CreateTile(i, j, 0, Chunk.Type.Boss);
+                        success = true;
+                        break;
+                    }
                     if (data == 15)
                     {
-                        CreateTile(i, j, k, Chunk.Type.FourWay);
+                        CreateTile(i, j, Random.Range(0, 4), Chunk.Type.FourWay);
                         success = true;
                         break;
                     }
@@ -200,6 +215,8 @@ public class WorldGenerator : MonoBehaviour
     {
         rotation = 4 - rotation;
         List<Chunk> accepted = new List<Chunk>();
+        Chunk[] tiles = (Mathf.Abs(x) % 10 < 4 && Mathf.Abs(y) % 10 < 4) ? cityTiles : forestTiles;
+
         for (int i = 0; i < tiles.Length; i++)
         {
             if (tiles[i].type == type)
