@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         }
         // Define new angle
         float movementAngle = Mathf.Atan2(rb2d.velocity.y, rb2d.velocity.x);
-        Quaternion newQuaternion = Quaternion.Euler(0.0f, 0.0f, movementAngle/Mathf.PI*180.0f);
+        Quaternion newQuaternion = Quaternion.Euler(0.0f, 0.0f, movementAngle/Mathf.PI*180.0f + 90);
         // Rotate player
         //transform.position = newPosition;
         if(inputVector.magnitude > 0.0f)
