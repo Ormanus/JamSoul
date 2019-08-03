@@ -351,6 +351,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8386838293060455385, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerObject
+      objectReference: {fileID: 0}
     - target: {fileID: -2235368573973402164, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
         type: 3}
       propertyPath: healthBar
@@ -366,11 +371,6 @@ PrefabInstance:
       propertyPath: weaponImage
       value: 
       objectReference: {fileID: 1538833691}
-    - target: {fileID: 8386838293060455385, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerObject
-      objectReference: {fileID: 0}
     - target: {fileID: 8386838293060455387, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -435,6 +435,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1242404803255972408, guid: 45c74a685e3ddfc45ad45ebd04ba6c47,
+        type: 3}
+      propertyPath: m_Name
+      value: GhostObject (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 5721156188432896950, guid: 45c74a685e3ddfc45ad45ebd04ba6c47,
         type: 3}
       propertyPath: m_Radius
@@ -445,11 +450,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1715930651}
-    - target: {fileID: 1242404803255972408, guid: 45c74a685e3ddfc45ad45ebd04ba6c47,
-        type: 3}
-      propertyPath: m_Name
-      value: GhostObject (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 999403059866023960, guid: 45c74a685e3ddfc45ad45ebd04ba6c47,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -791,10 +791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d62405672f3304bb6e22e15033a405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 11400000, guid: ec69be38188b2d742a74a5dde7323fb4, type: 2}
-  - {fileID: 11400000, guid: b14d0f33ef957304382f4ebc1965fa3f, type: 2}
-  - {fileID: 11400000, guid: 65d767404ec234d4fac925029d282386, type: 2}
+  cityTiles: []
+  forestTiles: []
 --- !u!4 &1974894540
 Transform:
   m_ObjectHideFlags: 0
@@ -1022,6 +1020,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1242404803255972408, guid: 45c74a685e3ddfc45ad45ebd04ba6c47,
+        type: 3}
+      propertyPath: m_Name
+      value: GhostObject
+      objectReference: {fileID: 0}
     - target: {fileID: 5721156188432896950, guid: 45c74a685e3ddfc45ad45ebd04ba6c47,
         type: 3}
       propertyPath: m_Radius
@@ -1032,11 +1035,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1715930651}
-    - target: {fileID: 1242404803255972408, guid: 45c74a685e3ddfc45ad45ebd04ba6c47,
-        type: 3}
-      propertyPath: m_Name
-      value: GhostObject
-      objectReference: {fileID: 0}
     - target: {fileID: 999403059866023960, guid: 45c74a685e3ddfc45ad45ebd04ba6c47,
         type: 3}
       propertyPath: m_LocalPosition.x

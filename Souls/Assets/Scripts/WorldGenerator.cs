@@ -224,7 +224,7 @@ public class WorldGenerator : MonoBehaviour
         }
         Chunk theChosenOne = accepted[Random.Range(0, accepted.Count)];
 
-        GameObject chunk = Instantiate(theChosenOne.tilemapPrefab);
+        GameObject chunk = Instantiate(theChosenOne.gameObject);
         chunk.transform.position = new Vector3(x * chunkSize, y * chunkSize);
         chunk.transform.eulerAngles = new Vector3(0f, 0f, 90f * rotation);
     }

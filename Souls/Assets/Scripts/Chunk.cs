@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Souls/Chunk")]
-public class Chunk : ScriptableObject
+public class Chunk : MonoBehaviour
 {
     public enum Type
     {
@@ -25,5 +24,4 @@ public class Chunk : ScriptableObject
     public Type type;
     public Palette palette;
     public float randomWeight = 1.0f; // How often should this chunk appear
-    public GameObject tilemapPrefab;
 }
