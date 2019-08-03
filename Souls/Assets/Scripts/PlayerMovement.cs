@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         }
         movement += inputVector * acceleration;
         float movementSpeed = movement.magnitude;
-        Debug.Log(movementSpeed);
 
         // Don't go past the maximum speed
         if (movementSpeed > maxSpeed)
