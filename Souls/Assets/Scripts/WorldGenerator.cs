@@ -7,6 +7,9 @@ public class WorldGenerator : MonoBehaviour
 {
     public Chunk[] cityTiles;
     public Chunk[] forestTiles;
+    private GameObject[] chunks = new GameObject[areaSize * areaSize];
+
+    private GameObject player;
 
     const int chunkSize = 32;
     const int areaSize = 10;
@@ -16,6 +19,22 @@ public class WorldGenerator : MonoBehaviour
     {
         generateCity(0, 0, 8, 8);
         Debug.Log("Level generated!");
+        player = GameObject.Find("PlayerObject");
+    }
+
+    private void Update()
+    {
+        for(int i = 0; i < chunks.Length; i++)
+        {
+            if((chunks[i].transform.position - player.transform.position).sqrMagnitude < 1500f)
+            {
+                chunks[i].SetActive(true);
+            }
+            else
+            {
+                chunks[i].SetActive(false);
+            }
+        }
     }
 
     int[][] sideCoords = new int[4][]
@@ -232,5 +251,7 @@ public class WorldGenerator : MonoBehaviour
         GameObject chunk = Instantiate(theChosenOne.gameObject);
         chunk.transform.position = new Vector3(x * chunkSize, y * chunkSize);
         chunk.transform.eulerAngles = new Vector3(0f, 0f, 90f * rotation);
+        chunks[x + y * areaSize] = chunk;
+        chunk.SetActive(false);
     }
 }

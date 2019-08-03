@@ -27,5 +27,9 @@ public class GhostAI : MonoBehaviour
                 rb2d.velocity = rb2d.velocity.normalized * maxSpeed;
             }
         }
+        else
+        {
+            rb2d.velocity = Vector2.zero;
+        }
     }
 }
