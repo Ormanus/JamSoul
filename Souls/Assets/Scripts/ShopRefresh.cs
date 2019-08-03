@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 public class ShopRefresh : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class ShopRefresh : MonoBehaviour
     public GameObject buttonLockedPrefab;
     public PlayerStats playerStats;
 
-    private int shopIndex = 2;
+    private int shopIndex;
 
     [System.Serializable]
     public struct Shop
@@ -49,7 +48,7 @@ public class ShopRefresh : MonoBehaviour
         }
         LoadShop(shopIndex);
     }
-    public static List<GameObject> currentButtons;
+    private List<GameObject> currentButtons;
     public void LoadShop(int index)
     {
         // Destroy the previous shop
@@ -59,8 +58,8 @@ public class ShopRefresh : MonoBehaviour
             {
                 Destroy(currentButtons[i]);
             }
-            currentButtons.Clear();
         }
+        currentButtons = new List<GameObject>();
         Shop shop = shops[index];
         int numItems = shop.items.Length;
         int itemsListed = 0;
@@ -96,23 +95,6 @@ public class ShopRefresh : MonoBehaviour
                 button.onClick.AddListener(() => { OnClick(item, index); });
             }
             itemsListed++;
-        }
-    }
-
-    UnityEvent unityEvent = new UnityEvent();
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentButtons = new List<GameObject>();
-        unityEvent.AddListener(() => LoadShop(shopIndex));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown("r") && unityEvent != null)
-        {
-            unityEvent.Invoke();
         }
     }
 }
