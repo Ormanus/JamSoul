@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Placeholder1
   m_EditorClassIdentifier: 
   price: 2
-  sprite: {fileID: -7708920532220806285, guid: ccc436e3bf24f474aa98746d80711362, type: 3}
-  description: Sell your soul for LULZ
+  sprite: {fileID: 2058049638561703503, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  description: Sparkling Potion
   type: 3

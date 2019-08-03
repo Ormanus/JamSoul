@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Weapon2
   m_EditorClassIdentifier: 
   price: 1
-  sprite: {fileID: 21300000, guid: aecc4f3d883f9204ba4adcc7d3d619be, type: 3}
-  description: Better sickle
+  sprite: {fileID: 5372264662783423788, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  description: Stick
   type: 0

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Weapon3
   m_EditorClassIdentifier: 
   price: 1
-  sprite: {fileID: 21300000, guid: ef52cccc4f051c844b771c8cfc9efc3b, type: 3}
+  sprite: {fileID: -6895716492971166485, guid: e94b223746394954a9a55d37687780fb, type: 3}
   description: Hoe
   type: 1
