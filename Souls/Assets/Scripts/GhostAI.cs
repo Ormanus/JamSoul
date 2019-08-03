@@ -5,13 +5,13 @@ using UnityEngine;
 public class GhostAI : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject player;
+    private GameObject player;
     public Rigidbody2D rb2d;
     public float acceleration;
     public float maxSpeed;
     void Start()
     {
-        
+        player = GameObject.Find("PlayerObject");
     }
 
     // Update is called once per frame

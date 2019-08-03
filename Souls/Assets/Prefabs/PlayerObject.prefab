@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5086098975020835339}
   m_Layer: 0
   m_Name: PlayerObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,6 +122,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: aecc4f3d883f9204ba4adcc7d3d619be, type: 3}
   - {fileID: 21300000, guid: ef52cccc4f051c844b771c8cfc9efc3b, type: 3}
   - {fileID: 21300000, guid: 6b3c44ae3b302604e8c1ba91a39f26a1, type: 3}
+  soulSprites:
+  - {fileID: 21300000, guid: 0bab6ae9cc9d0fc40ae5e9eda46090a9, type: 3}
+  - {fileID: 21300000, guid: 1e20f0b0f5f959c4d9af0cac4ae0aab4, type: 3}
+  - {fileID: 21300000, guid: bf22443ff4763804da1a1222d38dc7f5, type: 3}
+  - {fileID: 21300000, guid: 0d578060e7ec7984799081ae5505b9cf, type: 3}
+  - {fileID: 21300000, guid: f12bfad07699e02418fb486fa81d5be4, type: 3}
+  - {fileID: 21300000, guid: 588408c83553006408de1c63a4c120f4, type: 3}
+  - {fileID: 21300000, guid: 4a357d1ce91c6e34fa6dec3d25d67a33, type: 3}
+  - {fileID: 21300000, guid: 1f3ac7b9d8db21241a2c514354925e42, type: 3}
+  - {fileID: 21300000, guid: ee6cd92d8ade4f745863b130624017fc, type: 3}
 --- !u!50 &5322512542088773938
 Rigidbody2D:
   serializedVersion: 4
