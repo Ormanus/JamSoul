@@ -32,11 +32,6 @@ public class ShopObjectTrigger : MonoBehaviour
         //enterShopCanvas = GameObject.Find("EnterShopCanvas");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void inTrigger()
     {
         //if (Input.GetKeyDown("enter"))

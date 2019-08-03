@@ -44,8 +44,16 @@ public class WorldGenerator : MonoBehaviour
         openList.Add(8 + 9 * areaSize);
         openList.Add(9 + 8 * areaSize);
 
+        int counter = 0;
+
         while (openList.Count > 0)
         {
+            counter++;
+            if(counter > areaSize * areaSize)
+            {
+                Debug.LogError("AAAAAAAAAAAAa");
+            }
+
             int index = Random.Range(0, openList.Count);
             int current = openList[index];
 
@@ -183,7 +191,7 @@ public class WorldGenerator : MonoBehaviour
                     }
                     if (data == 5)
                     {
-                        CreateTile(i, j, k, Chunk.Type.Corridor);
+                        CreateTile(i, j, (k + (Random.value > 0.5f ? 2 : 0)) % 4, Chunk.Type.Corridor);
                         success = true;
                         break;
                     }
@@ -217,10 +225,10 @@ public class WorldGenerator : MonoBehaviour
         List<Chunk> accepted = new List<Chunk>();
         Chunk[] tiles = (Mathf.Abs(x) % 10 < 4 && Mathf.Abs(y) % 10 < 4) ? cityTiles : forestTiles;
 
-        for (int i = 0; i < tiles.Length; i++)
+        for (int i = 0; i < cityTiles.Length; i++)
         {
-            if (tiles[i].type == type)
-                accepted.Add(tiles[i]);
+            if (cityTiles[i].type == type)
+                accepted.Add(cityTiles[i]);
         }
         Chunk theChosenOne = accepted[Random.Range(0, accepted.Count)];
 

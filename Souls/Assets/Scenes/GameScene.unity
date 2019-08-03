@@ -791,8 +791,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d62405672f3304bb6e22e15033a405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cityTiles: []
-  forestTiles: []
+  cityTiles:
+  - {fileID: 4890387169195663648, guid: 2f37ebd1fb4b2264aabee0f6481a4ac4, type: 3}
+  - {fileID: -4498322357209084812, guid: fc4b38fd099905143ac8736c3f866a42, type: 3}
+  - {fileID: -4064585965724880370, guid: 4c1e0ad9ec25d40429577ead803a9bfd, type: 3}
+  - {fileID: -5805030718566678456, guid: 27fe3f74575e67a42b55c8176e4315ae, type: 3}
+  - {fileID: -7620070356513407487, guid: 475d6094d862a484d8a50a4e9d879842, type: 3}
+  - {fileID: -5705385072631738842, guid: a2c06ab2b9e5ac74fa6d86489953ca9b, type: 3}
+  - {fileID: 8299354006734673341, guid: 3a9456e3907a4cd41935ff0ab29f5968, type: 3}
+  forestTiles:
+  - {fileID: -4498322357209084812, guid: 4436d775fab3afc468acafe6794456ec, type: 3}
+  - {fileID: -4064585965724880370, guid: 9577fdbfa291446438fe311e53f0ee82, type: 3}
+  - {fileID: -5805030718566678456, guid: 4dcb4c0bd2f4950409636b5ce9ec8772, type: 3}
+  - {fileID: -5805030718566678456, guid: c00b130f2ed188247981e6daad6f47b5, type: 3}
+  - {fileID: -3196017197056912803, guid: 27afb376a01bbbe499399f5abf6dfe29, type: 3}
+  - {fileID: -5705385072631738842, guid: 1e63eaee939aa0f4d96273851fcf4826, type: 3}
 --- !u!4 &1974894540
 Transform:
   m_ObjectHideFlags: 0
@@ -801,7 +814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974894538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.619444, y: 16.44881, z: -88.375}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
