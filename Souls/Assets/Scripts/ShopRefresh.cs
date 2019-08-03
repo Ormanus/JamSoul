@@ -13,11 +13,13 @@ public class ShopRefresh : MonoBehaviour
     public GameObject buttonLockedPrefab;
     private GameObject player;
     private PlayerStats playerStats;
+    private PlayerWeapon playerWeapon;
 
     void Start()
     {
         player = GameObject.Find("PlayerObject");
         playerStats = player.GetComponent<PlayerStats>();
+        playerWeapon = player.GetComponent<PlayerWeapon>();
     }
 
     private int shopIndex;
@@ -43,15 +45,25 @@ public class ShopRefresh : MonoBehaviour
         {
             case 0: // Spear
                 playerStats.Weapon = 1;
+                playerWeapon.WeaponSize = 0.5f;
                 break;
             case 1: // Also spear
                 playerStats.Weapon = 1;
+                playerWeapon.WeaponSize = 0.5f;
                 break;
             case 2: // Scythe
                 playerStats.Weapon = 2;
+                playerWeapon.WeaponSize = 0.7f;
                 break;
             case 3: // Healing
                 playerStats.Health = playerStats.maxHealth;
+                break;
+            case 4: // Potions
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                playerStats.PotionToUse = item.type - 4;
                 break;
             default:
                 break;

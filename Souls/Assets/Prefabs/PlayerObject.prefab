@@ -167,11 +167,22 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   soulBar: {fileID: 0}
   weaponImage: {fileID: 0}
+  potionImage: {fileID: 0}
   weaponSprites:
   - {fileID: 21300000, guid: d477a831a8c0eeb4ab165a74b5d0ae77, type: 3}
   - {fileID: 21300000, guid: aecc4f3d883f9204ba4adcc7d3d619be, type: 3}
   - {fileID: 21300000, guid: ef52cccc4f051c844b771c8cfc9efc3b, type: 3}
   - {fileID: 21300000, guid: 6b3c44ae3b302604e8c1ba91a39f26a1, type: 3}
+  potionSprites:
+  - {fileID: -174804484191063705, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  - {fileID: 3275407576765064038, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  - {fileID: -7067808830664889489, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  - {fileID: -3001449038190906842, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  - {fileID: 2058049638561703503, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  maxHealth: 0
+  strengthPotion: 0
+  toughnessPotion: 0
+  timePotion: 0
   soulSprites:
   - {fileID: 21300000, guid: 0bab6ae9cc9d0fc40ae5e9eda46090a9, type: 3}
   - {fileID: 21300000, guid: 1e20f0b0f5f959c4d9af0cac4ae0aab4, type: 3}
@@ -248,7 +259,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0}
+  m_Offset: {x: 0, y: -0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +270,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
 --- !u!114 &5086098975020835339
 MonoBehaviour:

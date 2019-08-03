@@ -9,12 +9,12 @@ public class PlayerStats : MonoBehaviour
     public Image healthBar;
     public Image soulBar;
     public Image weaponImage;
+    public Image potionImage;
     public Sprite[] weaponSprites;
+    public Sprite[] potionSprites;
 
     [HideInInspector]
     public int maxHealth;
-    [HideInInspector]
-    public int potionToUse;
     [HideInInspector]
     public bool strengthPotion;
     [HideInInspector]
@@ -23,6 +23,27 @@ public class PlayerStats : MonoBehaviour
     public bool timePotion;
     private int maxSouls;
 
+    private int potionToUse;
+    public int PotionToUse
+    {
+        get
+        {
+            return potionToUse;
+        }
+        set
+        {
+            potionToUse = value;
+            if(potionToUse >= 0 && potionToUse < 5)
+            {
+                potionImage.enabled = true;
+                potionImage.sprite = potionSprites[potionToUse];
+            }
+            else
+            {
+                potionImage.enabled = false;
+            }
+        }
+    }
     private int health;
     public int Health
     {
@@ -79,6 +100,7 @@ public class PlayerStats : MonoBehaviour
         Weapon = 0;
         Health = maxHealth;
         Souls = maxSouls;
+        PotionToUse = -1;
     }
 
     public void DoDamage(int damage)

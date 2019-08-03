@@ -220,7 +220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &980520109
@@ -483,6 +483,11 @@ PrefabInstance:
       propertyPath: weaponImage
       value: 
       objectReference: {fileID: 1538833691}
+    - target: {fileID: -2235368573973402164, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
+        type: 3}
+      propertyPath: potionImage
+      value: 
+      objectReference: {fileID: 1490686272}
     - target: {fileID: 8386838293060455387, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -565,23 +570,23 @@ PrefabInstance:
       objectReference: {fileID: 1715930657}
     - target: {fileID: 7363607065203001234, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
         type: 3}
-      propertyPath: m_Offset.x
-      value: 0.8
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7363607065203001234, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
         type: 3}
-      propertyPath: m_Size.x
-      value: 0.8
+      propertyPath: m_Offset.y
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7363607065203001234, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.8
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7363607065203001234, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
         type: 3}
-      propertyPath: m_EdgeRadius
-      value: 0.5
+      propertyPath: m_Size.x
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc, type: 3}
@@ -619,9 +624,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -100}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1478860525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +664,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478860523}
+  m_CullTransparentMesh: 0
+--- !u!1 &1490686270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490686271}
+  - component: {fileID: 1490686273}
+  - component: {fileID: 1490686272}
+  m_Layer: 5
+  m_Name: PotionImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1490686271
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490686270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2083444313}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -50}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1490686272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490686270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1490686273
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490686270}
   m_CullTransparentMesh: 0
 --- !u!1 &1538833689
 GameObject:
@@ -1015,6 +1095,7 @@ RectTransform:
   - {fileID: 980520108}
   - {fileID: 1478860524}
   - {fileID: 1538833690}
+  - {fileID: 1490686271}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1081,14 +1162,17 @@ MonoBehaviour:
     type: 3}
   shops:
   - items:
+    - {fileID: 11400000, guid: 1bc2c4bad5c89c64cb7d536d6e78473a, type: 2}
+    - {fileID: 11400000, guid: 67ccbf74eef5b384ca945515cc20404d, type: 2}
+    - {fileID: 11400000, guid: 276f65d5326993a4086b0d4ffc506af7, type: 2}
+  - items:
     - {fileID: 11400000, guid: 396f10bf2d93eba40806a2491f41b6e5, type: 2}
+    - {fileID: 11400000, guid: 5a7dd646ddaf7894f917ef04615c0868, type: 2}
+    - {fileID: 11400000, guid: 28aabcf98c1a1e14694897f33aa5ffdc, type: 2}
   - items:
     - {fileID: 11400000, guid: c552a1dc6876eb4459f3928bdcec486f, type: 2}
-    - {fileID: 11400000, guid: 04a26cb98967b7749ada849df5aad5a9, type: 2}
-  - items:
-    - {fileID: 11400000, guid: c552a1dc6876eb4459f3928bdcec486f, type: 2}
-    - {fileID: 11400000, guid: 78f6cc1362d34ca4ea2d95cb8f043d73, type: 2}
-    - {fileID: 11400000, guid: 4ad575ea85e27cd43a4742d696d66f9e, type: 2}
+    - {fileID: 11400000, guid: 487921528eb82b5418a016acbd0b990f, type: 2}
+    - {fileID: 11400000, guid: 0ee08a9982ff92240bb6fa1dac5bce9d, type: 2}
 --- !u!114 &2104235618
 MonoBehaviour:
   m_ObjectHideFlags: 0

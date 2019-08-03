@@ -52,15 +52,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if(playerStats.Weapon == 0)
             {
-                spriteRenderer.sprite = weapon0Sprites[(int)(playerWeapon.getTimeSinceHit() * 8.0f)];
+                spriteRenderer.sprite = weapon0Sprites[(int)(playerWeapon.getTimeSinceHit() * 11.0f)];
             }
             if (playerStats.Weapon == 1)
             {
-                spriteRenderer.sprite = weapon1Sprites[(int)(playerWeapon.getTimeSinceHit() * 8.0f)];
+                spriteRenderer.sprite = weapon1Sprites[(int)(playerWeapon.getTimeSinceHit() * 11.0f)];
             }
             if (playerStats.Weapon == 2)
             {
-                spriteRenderer.sprite = weapon2Sprites[(int)(playerWeapon.getTimeSinceHit() * 8.0f)];
+                spriteRenderer.sprite = weapon2Sprites[(int)(playerWeapon.getTimeSinceHit() * 11.0f)];
             }
         }
         else
