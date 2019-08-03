@@ -563,6 +563,26 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 1715930657}
+    - target: {fileID: 7363607065203001234, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363607065203001234, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363607065203001234, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363607065203001234, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc,
+        type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0a131ead9e7f0e4d82fbb8ef68fa5cc, type: 3}
 --- !u!1 &1478860523
