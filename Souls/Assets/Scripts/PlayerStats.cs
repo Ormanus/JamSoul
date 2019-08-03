@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector]
     public bool timePotion;
     private int maxSouls;
+    private GameObject deathUI;
+    private Image deathBackground;
+    private float timeSinceDeath = 0.0f;
+    private bool playerDead = false;
 
     private int potionToUse;
     public int PotionToUse
@@ -101,6 +106,33 @@ public class PlayerStats : MonoBehaviour
         Health = maxHealth;
         Souls = maxSouls;
         PotionToUse = -1;
+        deathUI = GameObject.Find("DeathUI");
+        deathBackground = deathUI.GetComponentInChildren<Image>();
+        deathUI.SetActive(false);
+    }
+
+    public void Die()
+    {
+        if (!playerDead)
+        {
+            deathUI.SetActive(true);
+            timeSinceDeath = 0.0f;
+            playerDead = true;
+        }
+    }
+
+    void Update()
+    {
+        if (playerDead)
+        {
+            timeSinceDeath += Time.deltaTime;
+            deathBackground.color = new Vector4(0.0f, 0.0f, 0.0f, timeSinceDeath);
+            if (Input.GetKey(KeyCode.Return))
+            {
+                Debug.Log("Loading game scene");
+                SceneManager.LoadScene("GameScene");
+            }
+        }
     }
 
     public void DoDamage(int damage)
@@ -119,6 +151,10 @@ public class PlayerStats : MonoBehaviour
             {
                 Souls--;
             }
+        }
+        if(Souls <= 0)
+        {
+            Die();
         }
     }
 }
