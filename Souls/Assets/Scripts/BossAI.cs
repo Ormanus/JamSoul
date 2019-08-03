@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossAI : MonoBehaviour
 {
-    public int hp = 5;
+    const int maxHealth = 5;
+    public int hp = maxHealth;
     public BossWeapon weapon;
     public Transform player;
     public Animator animator;
     public float rushCooldown = 2.0f;
+    public Image healthBar;
+    float invTime = 0.0f;
 
     Phase phase = Phase.Idle;
     Vector2 rushTarget;
@@ -17,7 +22,26 @@ public class BossAI : MonoBehaviour
     {
         Idle,
         Swing,
-        Rush
+        Rush,
+        Dead,
+    }
+
+    public void takeDamage(int amount)
+    {
+        if(invTime < 0f)
+        {
+            invTime = 0.2f;
+            hp -= amount;
+            healthBar.fillAmount = (float)hp / maxHealth;
+            if (hp <= 0)
+            {
+                phase = Phase.Dead;
+                animator.enabled = false;
+                GetComponent<SpriteRenderer>().enabled = false;
+                healthBar.transform.parent.parent.gameObject.SetActive(false);
+                player.GetComponent<PlayerStats>().Win();
+            }
+        }
     }
 
     private void Start()
@@ -30,10 +54,12 @@ public class BossAI : MonoBehaviour
         Vector2 delta = player.position - transform.position;
         transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg + 90f);
         rushCooldown -= Time.deltaTime;
+        invTime -= Time.deltaTime;
 
         switch (phase)
         {
             case Phase.Idle when (player.position - transform.position).sqrMagnitude < 32:
+                healthBar.transform.parent.parent.gameObject.SetActive(true);
                 startRush();
                 break;
             case Phase.Rush:
@@ -47,7 +73,6 @@ public class BossAI : MonoBehaviour
                     {
                         transform.position += rushDirection.normalized * Time.deltaTime * 10f;
                     }
-
                     break;
                 }
 
@@ -58,6 +83,9 @@ public class BossAI : MonoBehaviour
                         startRush();
                     }
                 }
+                break;
+            case Phase.Dead:
+                weapon.attacking = false;
                 break;
         }
     }
