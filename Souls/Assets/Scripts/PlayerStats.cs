@@ -71,12 +71,6 @@ public class PlayerStats : MonoBehaviour
         Souls = maxSouls;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void DoDamage(int damage)
     {
         for (int i = 0; i < damage; i++)

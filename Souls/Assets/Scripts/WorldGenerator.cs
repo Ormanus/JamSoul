@@ -8,13 +8,14 @@ public class WorldGenerator : MonoBehaviour
     public Chunk[] cityTiles;
     public Chunk[] forestTiles;
 
-    const int chunkSize = 16;
-    const int areaSize = 32;
+    const int chunkSize = 32;
+    const int areaSize = 10;
     //const int worldSize = 32;
 
     private void Start()
     {
         generateCity(0, 0, 8, 8);
+        Debug.Log("Level generated!");
     }
 
     int[][] sideCoords = new int[4][]
@@ -37,23 +38,17 @@ public class WorldGenerator : MonoBehaviour
         }
         List<int> openList = new List<int>();
 
-        map[8, 7] = 17;
-        map[8, 8] = 16;
+        int half = areaSize / 2;
 
-        openList.Add(7 + 8 * areaSize);
-        openList.Add(8 + 9 * areaSize);
-        openList.Add(9 + 8 * areaSize);
+        map[half, half + 1] = 17;
+        map[half, half] = 16;
 
-        int counter = 0;
+        openList.Add(half - 1 + half * areaSize);
+        openList.Add(half + (half - 1) * areaSize);
+        openList.Add(half + 1 + half * areaSize);
 
         while (openList.Count > 0)
         {
-            counter++;
-            if(counter > areaSize * areaSize)
-            {
-                Debug.LogError("AAAAAAAAAAAAa");
-            }
-
             int index = Random.Range(0, openList.Count);
             int current = openList[index];
 
@@ -130,6 +125,8 @@ public class WorldGenerator : MonoBehaviour
             }
             openList.RemoveAt(index);
         }
+
+        //Debug.LogError("");
 
         //generating finished, create chunks
         for (int i = 0; i < areaSize; i++)
@@ -223,7 +220,7 @@ public class WorldGenerator : MonoBehaviour
     {
         rotation = 4 - rotation;
         List<Chunk> accepted = new List<Chunk>();
-        Chunk[] tiles = (Mathf.Abs(x) % 10 < 4 && Mathf.Abs(y) % 10 < 4) ? cityTiles : forestTiles;
+        //Chunk[] tiles = (Mathf.Abs(x) % 10 < 4 && Mathf.Abs(y) % 10 < 4) ? cityTiles : forestTiles;
 
         for (int i = 0; i < cityTiles.Length; i++)
         {
