@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxSpeed;
     public float acceleration;
     Vector2 movement;
+    public Animator move;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        move.SetBool("Moving", true);
         // Read the input and make a vector out of them
         float inputHorizontal = Input.GetAxisRaw("Horizontal");
         float inputVertical = Input.GetAxisRaw("Vertical");
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         if (inputVector.magnitude == 0.0f && movement.magnitude < acceleration * 0.5)
         {
             movement = Vector2.zero;
+            move.SetBool("Moving", false);
         }
         movement += inputVector * acceleration;
         float movementSpeed = movement.magnitude;
