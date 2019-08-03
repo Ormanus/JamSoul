@@ -39,7 +39,6 @@ public class PlayerWeapon : MonoBehaviour
     }
     void doHit()
     {
-        Debug.Log("Hit Dealt");
         weaponHitBox.enabled = true;
         timeSinceHit = 0.0f;
         hitting = true;
@@ -131,7 +130,15 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (collider.gameObject.tag == "Enemy")
         {
-            Destroy(collider.gameObject);
+            BossAI boss = collider.gameObject.GetComponent<BossAI>();
+            if (boss)
+            {
+                boss.takeDamage(1 + (playerStats.strengthPotion ? 1 : 0));
+            }
+            else
+            {
+                Destroy(collider.gameObject);
+            }
         }
     }
 }
