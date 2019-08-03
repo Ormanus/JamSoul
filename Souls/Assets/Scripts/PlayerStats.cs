@@ -11,7 +11,16 @@ public class PlayerStats : MonoBehaviour
     public Image weaponImage;
     public Sprite[] weaponSprites;
 
-    private int maxHealth;
+    [HideInInspector]
+    public int maxHealth;
+    [HideInInspector]
+    public int potionToUse;
+    [HideInInspector]
+    public bool strengthPotion;
+    [HideInInspector]
+    public bool toughnessPotion;
+    [HideInInspector]
+    public bool timePotion;
     private int maxSouls;
 
     private int health;
@@ -27,6 +36,7 @@ public class PlayerStats : MonoBehaviour
             healthBar.fillAmount = (float)health / maxHealth;
         }
     }
+    
     public Sprite[] soulSprites;
     private int souls;
     public int Souls

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bae847be0bce7ed498cba5b9cd2750ec, type: 3}
-  m_Name: Weapon4
+  m_Name: Potion2
   m_EditorClassIdentifier: 
   price: 1
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  description: Invisible Weapon
-  type: 2
+  sprite: {fileID: 3275407576765064038, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  description: Potion of Vision
+  type: 5

@@ -41,14 +41,17 @@ public class ShopRefresh : MonoBehaviour
         }
         switch (item.type)
         {
-            case 0: // Better weapon
+            case 0: // Spear
                 playerStats.Weapon = 1;
                 break;
-            case 1: // Even better weapon
+            case 1: // Also spear
+                playerStats.Weapon = 1;
+                break;
+            case 2: // Scythe
                 playerStats.Weapon = 2;
                 break;
-            case 2: // The best weapon
-                playerStats.Weapon = 3;
+            case 3: // Healing
+                playerStats.Health = playerStats.maxHealth;
                 break;
             default:
                 break;

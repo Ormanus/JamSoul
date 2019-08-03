@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bae847be0bce7ed498cba5b9cd2750ec, type: 3}
-  m_Name: Placeholder2
+  m_Name: Heal
   m_EditorClassIdentifier: 
-  price: 1
-  sprite: {fileID: -3001449038190906842, guid: e94b223746394954a9a55d37687780fb, type: 3}
-  description: Potion of hydration
-  type: 4
+  price: 2
+  sprite: {fileID: 7642980859614939925, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  description: Health refill
+  type: 3

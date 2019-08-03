@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5577c2bb8266d8f4db81a51d04579af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldOrigo: {x: 0, y: 0}
-  shop2Distance: 8
-  shop3Distance: 16
+  worldOrigo: {x: 160, y: 160}
+  shop2Distance: 50
+  shop3Distance: 100
 --- !u!212 &1012193336699812431
 SpriteRenderer:
   m_ObjectHideFlags: 0

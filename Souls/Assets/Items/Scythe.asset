@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bae847be0bce7ed498cba5b9cd2750ec, type: 3}
-  m_Name: Weapon2
+  m_Name: Weapon3
   m_EditorClassIdentifier: 
   price: 1
-  sprite: {fileID: 5372264662783423788, guid: e94b223746394954a9a55d37687780fb, type: 3}
-  description: Stick
-  type: 0
+  sprite: {fileID: -6895716492971166485, guid: e94b223746394954a9a55d37687780fb, type: 3}
+  description: Scythe
+  type: 2
