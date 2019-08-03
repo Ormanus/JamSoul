@@ -105,6 +105,10 @@ public class PlayerStats : MonoBehaviour
 
     public void DoDamage(int damage)
     {
+        if (toughnessPotion && damage >= 1)
+        {
+            damage--;
+        }
         for (int i = 0; i < damage; i++)
         {
             if (Health > 0)
