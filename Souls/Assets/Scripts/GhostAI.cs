@@ -12,6 +12,8 @@ public class GhostAI : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("PlayerObject");
+        transform.SetParent(null, true);
+        transform.rotation = Quaternion.identity;
     }
 
     // Update is called once per frame
