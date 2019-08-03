@@ -12,8 +12,7 @@ public class WorldGenerator : MonoBehaviour
     private GameObject player;
 
     const int chunkSize = 32;
-    const int areaSize = 11;
-    public const int playerSpawn = areaSize / 2;
+    const int areaSize = 10;
     //const int worldSize = 32;
 
     private void Start()
@@ -25,10 +24,9 @@ public class WorldGenerator : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < chunks.Length; i++)
+        for(int i = 0; i < chunks.Length; i++)
         {
-            //chunks[i].SetActive(true); //DEACTIVATE THIS
-            if ((chunks[i].transform.position - player.transform.position).sqrMagnitude < 1500f)
+            if((chunks[i].transform.position - player.transform.position).sqrMagnitude < 1500f)
             {
                 chunks[i].SetActive(true);
             }
@@ -63,16 +61,6 @@ public class WorldGenerator : MonoBehaviour
 
         map[half, half + 1] = 17;
         map[half, half] = 16;
-
-        map[half, half + 3] = 16;
-        map[half, half - 3] = 16;
-        map[half + 3, half] = 16;
-        map[half - 3, half] = 16;
-
-        map[1, 1] = 16;
-        map[1, areaSize - 2] = 16;
-        map[areaSize - 2, 1] = 16;
-        map[areaSize - 2, areaSize - 2] = 16;
 
         openList.Add(half - 1 + half * areaSize);
         openList.Add(half + (half - 1) * areaSize);
@@ -251,21 +239,12 @@ public class WorldGenerator : MonoBehaviour
     {
         rotation = 4 - rotation;
         List<Chunk> accepted = new List<Chunk>();
-        Chunk[] tiles;
-        int half = areaSize / 2;
-        if((Mathf.Abs(x - half) < 3 || Mathf.Abs(y - half) < 3) && (Mathf.Abs(x - half) > 3 || Mathf.Abs(y - half) > 3))
-        {
-            tiles = forestTiles;
-        }
-        else
-        {
-            tiles = cityTiles;
-        }
+        //Chunk[] tiles = (Mathf.Abs(x) % 10 < 4 && Mathf.Abs(y) % 10 < 4) ? cityTiles : forestTiles;
 
-        for (int i = 0; i < tiles.Length; i++)
+        for (int i = 0; i < cityTiles.Length; i++)
         {
-            if (tiles[i].type == type)
-                accepted.Add(tiles[i]);
+            if (cityTiles[i].type == type)
+                accepted.Add(cityTiles[i]);
         }
         Chunk theChosenOne = accepted[Random.Range(0, accepted.Count)];
 
