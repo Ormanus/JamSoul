@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e023a7ec64f1b47a783ff39bfd7951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacking: 0
 --- !u!1 &1639853683951804104
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,6 +73,7 @@ GameObject:
   - component: {fileID: 2242158609519293776}
   - component: {fileID: 279471520960162292}
   - component: {fileID: 742709514990742647}
+  - component: {fileID: 2940314797742623159}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -179,6 +181,22 @@ CircleCollider2D:
   m_Offset: {x: 0.016282797, y: 0.013479948}
   serializedVersion: 2
   m_Radius: 0.23405564
+--- !u!114 &2940314797742623159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639853683951804104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 075cbfda9a4d5ea4da5be1815b25d88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 5
+  weapon: {fileID: 9048094836396270017}
+  player: {fileID: 0}
+  animator: {fileID: 279471520960162292}
 --- !u!1 &3853238528612596056
 GameObject:
   m_ObjectHideFlags: 0
