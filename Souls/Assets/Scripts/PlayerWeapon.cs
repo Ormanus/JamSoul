@@ -10,7 +10,6 @@ public class PlayerWeapon : MonoBehaviour
     private float timeSinceHit = 0.0f;
     private float weaponSize;
     private bool hitting = false;
-    private bool dealsHit = false;
     private PlayerStats playerStats;
     private GameObject player;
     public bool isHitting()
@@ -41,7 +40,7 @@ public class PlayerWeapon : MonoBehaviour
     void doHit()
     {
         Debug.Log("Hit Dealt");
-        dealsHit = true;
+        weaponHitBox.enabled = true;
         timeSinceHit = 0.0f;
         hitting = true;
     }
@@ -52,7 +51,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         WeaponSize = 0.3f;
         hitEvent.AddListener(doHit);
-        dealsHit = false;
+        weaponHitBox.enabled = false;
         player = GameObject.Find("PlayerObject");
         playerStats = player.GetComponent<PlayerStats>();
     }
@@ -65,7 +64,7 @@ public class PlayerWeapon : MonoBehaviour
         if(timeSinceHit > maxHitRate / 4.0f)
         {
             hitting = false;
-            dealsHit = false;
+            weaponHitBox.enabled = false;
         }
         if (Input.GetKey("space") && hitEvent != null && timeSinceHit > maxHitRate)
         {
@@ -127,13 +126,7 @@ public class PlayerWeapon : MonoBehaviour
         yield return new WaitForSeconds(10f);
         playerStats.strengthPotion = false;
     }
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if(collider.gameObject.tag == "Enemy")
-        {
-            Destroy(collider.gameObject);
-        }
-    }
+
     void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Enemy")
