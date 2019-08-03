@@ -68,7 +68,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: b4fe607df40f2284b9ff847d1f61ac18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -138,6 +138,20 @@ MonoBehaviour:
   walkingSprites:
   - {fileID: 21300000, guid: 1c9634a04934bc84da6623a6287ab267, type: 3}
   - {fileID: 21300000, guid: 737b2b96ad0e714419a059bc87051f5a, type: 3}
+  weapon0Sprites:
+  - {fileID: 21300000, guid: f4cbd8d4eb34b0a4586f381434cf570f, type: 3}
+  - {fileID: 21300000, guid: 4a816febf6494a84eb31f439b044ed1c, type: 3}
+  - {fileID: 21300000, guid: 420c73928f28b8e41a63341f24eec9b4, type: 3}
+  weapon1Sprites:
+  - {fileID: 21300000, guid: aa83888fd99c0be488e8ad75914c08a6, type: 3}
+  - {fileID: 21300000, guid: 2d71924cce5f351499a846849589a00d, type: 3}
+  - {fileID: 21300000, guid: a0997bb97509eff48b24f6b99f67cf5f, type: 3}
+  weapon2Sprites:
+  - {fileID: 21300000, guid: ebe233d377bd5ba4ab8a98869fe21f8d, type: 3}
+  - {fileID: 21300000, guid: 580e46dff0a15a342b19248cc84b1752, type: 3}
+  - {fileID: 21300000, guid: ea62abf01afec244bb37ed680b30076b, type: 3}
+  playerWeapon: {fileID: 5086098975020835339}
+  playerStats: {fileID: -2235368573973402164}
 --- !u!114 &-2235368573973402164
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,11 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite standingSprite;
     public Sprite[] walkingSprites;
+    public Sprite[] weapon0Sprites;
+    public Sprite[] weapon1Sprites;
+    public Sprite[] weapon2Sprites;
+    public PlayerWeapon playerWeapon;
+    public PlayerStats playerStats;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +39,47 @@ public class PlayerMovement : MonoBehaviour
         }
         // Define new angle
         float movementAngle = Mathf.Atan2(rb2d.velocity.y, rb2d.velocity.x);
-        Quaternion newQuaternion = Quaternion.Euler(0.0f, 0.0f, movementAngle/Mathf.PI*180.0f);
+        Quaternion newQuaternion = Quaternion.Euler(0.0f, 0.0f, movementAngle/Mathf.PI*180.0f + 90.0f);
         // Rotate player
         //transform.position = newPosition;
         if(inputVector.magnitude > 0.0f)
         {
             transform.rotation = newQuaternion;
+        }
+
+        // Change the sprites
+        if (playerWeapon.isHitting())
+        {
+            if(playerStats.Weapon == 0)
+            {
+                spriteRenderer.sprite = weapon0Sprites[(int)(playerWeapon.getTimeSinceHit() * 8.0f)];
+            }
+            if (playerStats.Weapon == 1)
+            {
+                spriteRenderer.sprite = weapon1Sprites[(int)(playerWeapon.getTimeSinceHit() * 8.0f)];
+            }
+            if (playerStats.Weapon == 2)
+            {
+                spriteRenderer.sprite = weapon2Sprites[(int)(playerWeapon.getTimeSinceHit() * 8.0f)];
+            }
+        }
+        else
+        {
+            if (inputVector.magnitude > 0.0f)
+            {
+                if (Mathf.Repeat(Time.time, 0.5f) < 0.25f)
+                {
+                    spriteRenderer.sprite = walkingSprites[0];
+                }
+                else
+                {
+                    spriteRenderer.sprite = walkingSprites[1];
+                }
+            }
+            else
+            {
+                spriteRenderer.sprite = standingSprite;
+            }
         }
     }
 }

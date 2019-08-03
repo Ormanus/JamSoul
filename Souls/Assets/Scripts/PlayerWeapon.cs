@@ -9,6 +9,19 @@ public class PlayerWeapon : MonoBehaviour
     public float maxHitRate;
     private float timeSinceHit = 0.0f;
     private float weaponSize;
+    private bool hitting = false;
+    public bool isHitting()
+    {
+        return hitting;
+    }
+    public float getTimeSinceHit()
+    {
+        return timeSinceHit;
+    }
+    public float getMaxHitRate()
+    {
+        return maxHitRate;
+    }
     public float WeaponSize
     {
         get
@@ -27,6 +40,7 @@ public class PlayerWeapon : MonoBehaviour
         Debug.Log("Hit Dealt");
         weaponHitBox.enabled = true;
         timeSinceHit = 0.0f;
+        hitting = true;
     }
 
     UnityEvent hitEvent = new UnityEvent();
@@ -44,6 +58,7 @@ public class PlayerWeapon : MonoBehaviour
         timeSinceHit += Time.deltaTime;
         if(timeSinceHit > maxHitRate / 4.0f)
         {
+            hitting = false;
             weaponHitBox.enabled = false;
         }
         if (Input.GetKey("space") && hitEvent != null && timeSinceHit > maxHitRate)

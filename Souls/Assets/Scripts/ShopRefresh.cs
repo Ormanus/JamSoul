@@ -11,7 +11,14 @@ public class ShopRefresh : MonoBehaviour
     public RectTransform backGroundTransform;
     public GameObject buttonPrefab;
     public GameObject buttonLockedPrefab;
-    public PlayerStats playerStats;
+    private GameObject player;
+    private PlayerStats playerStats;
+
+    void Start()
+    {
+        player = GameObject.Find("PlayerObject");
+        playerStats = player.GetComponent<PlayerStats>();
+    }
 
     private int shopIndex;
 
