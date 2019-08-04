@@ -88,12 +88,48 @@ public class ShopRefresh : MonoBehaviour
         for (int i = 0; i < numItems; i++)
         {
             Item item = shop.items[i];
-
-            bool locked = playerStats.Souls > item.price;
-
+            bool locked = false;
+            if (playerStats.Souls <= item.price)
+            {
+                locked = true;
+            };
+            // Don't let the player buy stuff they don't need
+            switch (item.type)
+            {
+                case 0: // spear
+                case 1: // spear
+                case 2: // scythe
+                    if (playerStats.Weapon == 1)
+                    {
+                        locked = true;
+                    }
+                    if (item.type == 2 && playerStats.Weapon == 2)
+                    {
+                        locked = true;
+                    }
+                    break;
+                case 3: // health refill
+                    if (playerStats.Health == playerStats.maxHealth)
+                    {
+                        locked = true;
+                    }
+                    break;
+                case 4: // potions
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                    if(item.type == playerStats.PotionToUse + 4)
+                    {
+                        locked = true;
+                    }
+                    break;
+                default:
+                    break;
+            }
             Debug.Log(string.Format("Loading Item {0}...", i));
             GameObject itemButton;
-            if (locked)
+            if (!locked)
             {
                 itemButton = GameObject.Instantiate<GameObject>(buttonPrefab);
             }
@@ -111,7 +147,7 @@ public class ShopRefresh : MonoBehaviour
             buttonTransform.anchoredPosition = new Vector2(0.0f, -itemsListed * buttonSpacing);
             buttonImage.sprite = item.sprite;
             buttonText.text = string.Format("{0}\nPrice: {1} piece{2} of soul",item.description, item.price, item.price == 1 ? "" : "s");
-            if (playerStats.Souls > item.price)
+            if (!locked)
             {
                 Button button = itemButton.GetComponent<Button>();
                 button.onClick.AddListener(() => { OnClick(item, index); });
