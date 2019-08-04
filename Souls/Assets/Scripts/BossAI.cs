@@ -30,7 +30,7 @@ public class BossAI : MonoBehaviour
     {
         if(invTime < 0f)
         {
-            invTime = 0.2f;
+            invTime = 0.3f;
             hp -= amount;
             healthBar.fillAmount = (float)hp / maxHealth;
             if (hp <= 0)
