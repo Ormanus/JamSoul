@@ -33,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
         // Apply brakes
         //rb2d.AddForce(-rb2d.velocity.normalized * acceleration * 0.5f);
         // Don't let the player go too fast
-        if (velocitySpeed > maxSpeed)
+        if (velocitySpeed > maxSpeed * (playerStats.timePotion ? 2f : 1f))
         {
-            rb2d.velocity = rb2d.velocity.normalized * maxSpeed;
+            rb2d.velocity = rb2d.velocity.normalized * maxSpeed * (playerStats.timePotion ? 2f : 1f);
         }
         // Define new angle
         float movementAngle = Mathf.Atan2(rb2d.velocity.y, rb2d.velocity.x);

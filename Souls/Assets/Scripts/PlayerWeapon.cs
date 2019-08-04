@@ -85,6 +85,7 @@ public class PlayerWeapon : MonoBehaviour
                     break;
                 case 2: // Time potion
                     playerStats.timePotion = true;
+                    Time.timeScale = 0.5f;
                     StartCoroutine(ResetTime());
                     break;
                 case 3: // Toughness potion
@@ -113,6 +114,7 @@ public class PlayerWeapon : MonoBehaviour
     IEnumerator ResetTime()
     {
         yield return new WaitForSeconds(10f);
+        Time.timeScale = 1.0f;
         playerStats.timePotion = false;
     }
     IEnumerator ResetToughness()
