@@ -47,7 +47,8 @@ public class BossAI : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("PlayerObject").transform;
-        transform.SetParent(null, false);
+        transform.SetParent(null, true);
+
     }
 
     void Update()
