@@ -59,7 +59,7 @@ public class PlayerWeapon : MonoBehaviour
     void Update()
     {
         // Do a hit if conditions allow
-        timeSinceHit += Time.deltaTime;
+        timeSinceHit += Time.deltaTime * (playerStats.timePotion ? 2f : 1f);
         if(timeSinceHit > maxHitRate / 4.0f)
         {
             hitting = false;
