@@ -47,12 +47,15 @@ public class BossAI : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("PlayerObject").transform;
+        transform.SetParent(null, false);
     }
 
     void Update()
     {
         Vector2 delta = player.position - transform.position;
         transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg + 90f);
+        healthBar.transform.parent.parent.position = transform.position + new Vector3(0f, 1.4f, 0f);
+        healthBar.transform.parent.rotation = Quaternion.identity;
         rushCooldown -= Time.deltaTime;
         invTime -= Time.deltaTime;
 
@@ -65,7 +68,7 @@ public class BossAI : MonoBehaviour
             case Phase.Rush:
                 {
                     Vector3 rushDirection = (Vector3)rushTarget - transform.position;
-                    if (rushDirection.magnitude < Time.deltaTime * 10f)
+                    if (rushDirection.magnitude < Time.deltaTime * 8f)
                     {
                         swingTheScythe();
                     }
