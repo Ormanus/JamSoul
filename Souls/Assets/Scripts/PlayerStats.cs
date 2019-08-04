@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -27,7 +28,8 @@ public class PlayerStats : MonoBehaviour
     private Image deathBackground;
     private float timeSinceDeath = 0.0f;
     private bool playerDead = false;
-
+    private bool playerWon = false;
+    private GameObject winUI;
     private int potionToUse;
     public int PotionToUse
     {
@@ -49,6 +51,16 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
+
+    internal void Win()
+    {
+        if (!playerWon)
+        {
+            playerWon = true;
+            winUI.SetActive(true);
+        }
+    }
+
     private int health;
     public int Health
     {
@@ -109,6 +121,8 @@ public class PlayerStats : MonoBehaviour
         deathUI = GameObject.Find("DeathUI");
         deathBackground = deathUI.GetComponentInChildren<Image>();
         deathUI.SetActive(false);
+        winUI = GameObject.Find("WinUI");
+        winUI.SetActive(false);
     }
 
     public void Die()
@@ -127,9 +141,15 @@ public class PlayerStats : MonoBehaviour
         {
             timeSinceDeath += Time.deltaTime;
             deathBackground.color = new Vector4(0.0f, 0.0f, 0.0f, timeSinceDeath);
-            if (Input.GetKey(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
-                Debug.Log("Loading game scene");
+                SceneManager.LoadScene("GameScene");
+            }
+        }
+        if (playerWon)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
                 SceneManager.LoadScene("GameScene");
             }
         }
