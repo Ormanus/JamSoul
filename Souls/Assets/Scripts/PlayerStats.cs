@@ -27,7 +27,8 @@ public class PlayerStats : MonoBehaviour
     private GameObject deathUI;
     private Image deathBackground;
     private float timeSinceDeath = 0.0f;
-    private bool playerDead = false;
+    [HideInInspector]
+    public bool playerDead = false;
     private bool playerWon = false;
     private GameObject winUI;
     private int potionToUse;
