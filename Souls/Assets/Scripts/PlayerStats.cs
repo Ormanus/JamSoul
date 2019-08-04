@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     public Image soulBar;
     public Image weaponImage;
     public Image potionImage;
+    public Image soulBlackness;
     public Sprite[] weaponSprites;
     public Sprite[] potionSprites;
 
@@ -91,6 +92,8 @@ public class PlayerStats : MonoBehaviour
             {
                 soulBar.enabled = true;
                 soulBar.sprite = soulSprites[souls - 1];
+                soulBlackness.color = new Color(0f, 0f, 0f, 1f - ((float)souls / maxSouls));
+                Camera.main.orthographicSize = 5 - (1f - ((float)souls / maxSouls)) * 3f;
             }
             else
             {
