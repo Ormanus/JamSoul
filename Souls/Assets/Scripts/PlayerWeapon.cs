@@ -58,6 +58,10 @@ public class PlayerWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerStats.playerDead)
+        {
+            return;
+        }
         // Do a hit if conditions allow
         timeSinceHit += Time.deltaTime * (playerStats.timePotion ? 2f : 1f);
         if(timeSinceHit > maxHitRate / 4.0f)
