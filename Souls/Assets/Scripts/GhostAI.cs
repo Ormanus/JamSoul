@@ -17,7 +17,7 @@ public class GhostAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if((player.transform.position - transform.position).sqrMagnitude < 64)
         {

@@ -51,7 +51,7 @@ public class BossAI : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector2 delta = player.position - transform.position;
         transform.eulerAngles = new Vector3(0f, 0f, Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg + 90f);
